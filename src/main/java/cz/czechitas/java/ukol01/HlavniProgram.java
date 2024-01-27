@@ -11,7 +11,7 @@ public class HlavniProgram {
 
   public void start() {
     zofka = new Turtle();
-    posun_na_zacatek();
+    /* posun_na_zacatek();
     nakresli_prasatko(100);
      posun(250);
     nakresli_n_uhelnik(8,30);
@@ -19,7 +19,23 @@ public class HlavniProgram {
     nakresli_n_uhelnik(20,20);
     posun(100);
     nakresli_slunicko(30, 50);
-
+     */
+    posun_na_zacatek();
+    nakresli_slunicko(10, 20);
+    posun(200,'S');
+    posun(200,'L');
+    for (int i=0; i<5; i++) {
+      nakresli_domecek(80);
+      posun(100, 'R');
+    }
+    nakresli_domecek(80);
+    posun(200, 'S');
+    posun(80, 'L');
+    nakresli_domecek(80);
+    posun(980, 'L');
+    nakresli_domecek(80);
+    posun(500, 'R');
+    nakresli_prasatko(100);
 
   }
 
@@ -39,6 +55,7 @@ public class HlavniProgram {
     zofka.move(delka_strany);
     zofka.turnRight(30);
     zofka.move(delka_strany);
+    zofka.turnRight(180);
   }
 
 
@@ -66,7 +83,7 @@ public class HlavniProgram {
   public void nakresli_prasatko (int delka_strany) {
     zofka.turnLeft(90);
     nakresli_domecek(100);
-    zofka.turnRight(90);
+    zofka.turnLeft(90);
     zofka.move(delka_strany);
     nakresli_nozicky(100, 25);
     zofka.turnRight(45);
@@ -75,18 +92,30 @@ public class HlavniProgram {
 
   public void posun_na_zacatek() {
     zofka.penUp();
-    zofka.move(150);
+    zofka.move(220);
     zofka.turnLeft(90);
     zofka.move(300);
     zofka.turnRight(90);
     zofka.penDown();
   }
 
-  public void posun(int delka_posunu) {
+  public void posun(int delka_posunu, char smer) {
     zofka.penUp();
-    zofka.turnRight(90);
-    zofka.move(delka_posunu);
-    zofka.turnLeft(90);
+    if (smer == 'L') {
+      zofka.turnLeft(90);
+      zofka.move(delka_posunu);
+      zofka.turnRight(90);
+    } else if (smer == 'R') {
+      zofka.turnRight(90);
+      zofka.move(delka_posunu);
+      zofka.turnLeft(90);
+    } else if (smer == 'N') {
+      zofka.move(delka_posunu);
+    } else if (smer == 'S') {
+      zofka.turnRight(180);
+      zofka.move(delka_posunu);
+      zofka.turnLeft(180);
+    }
     zofka.penDown();
   }
 
