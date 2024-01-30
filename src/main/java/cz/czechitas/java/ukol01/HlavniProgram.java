@@ -11,31 +11,30 @@ public class HlavniProgram {
 
   public void start() {
     zofka = new Turtle();
-    /* posun_na_zacatek();
-    nakresli_prasatko(100);
-     posun(250);
-    nakresli_n_uhelnik(8,30);
-    posun(150);
-    nakresli_n_uhelnik(20,20);
-    posun(100);
-    nakresli_slunicko(30, 50);
+    /*nakresliPrasatko(100);
+    posun(250, 'R');
+    nakresliNUhelnik(8,30);
+    posun(150, 'R');
+    nakresliNUhelnik(20,20);
+    posun(150, 'R');
+    nakresliNUhelnik(30, 10);
     */
-    posun_na_zacatek();
-    nakresli_slunicko(10, 20);
+    posunNaZacatek();
+    nakresliSlunicko(10, 20);
     posun(200,'S');
     posun(200,'L');
     for (int i=0; i<5; i++) {
-      nakresli_domecek(80);
+      nakresliDomecek(80);
       posun(100, 'R');
     }
-    nakresli_domecek(80);
+    nakresliDomecek(80);
     posun(200, 'S');
     posun(80, 'L');
-    nakresli_domecek(80);
+    nakresliDomecek(80);
     posun(980, 'L');
-    nakresli_domecek(80);
+    nakresliDomecek(80);
     posun(500, 'R');
-    nakresli_prasatko(100);
+    nakresliPrasatko(100);
     posun(200, 'S');
     posun(300, 'L');
 
@@ -55,58 +54,58 @@ public class HlavniProgram {
 
   }
 
-  public void nakresli_ctverec(int delka_strany) {
+  public void nakresliCtverec(int delkaStrany) {
     for (int i = 0; i < 4; i++) {
-      zofka.move(delka_strany);
+      zofka.move(delkaStrany);
       zofka.turnRight(90);
     }
   }
 
-  public void nakresli_domecek(int delka_strany) {
-    nakresli_ctverec(delka_strany);
-    zofka.move(delka_strany);
+  public void nakresliDomecek(int delkaStrany) {
+    nakresliCtverec(delkaStrany);
+    zofka.move(delkaStrany);
     zofka.turnRight(30);
-    zofka.move(delka_strany);
+    zofka.move(delkaStrany);
     zofka.turnRight(120);
-    zofka.move(delka_strany);
+    zofka.move(delkaStrany);
     zofka.turnRight(30);
-    zofka.move(delka_strany);
+    zofka.move(delkaStrany);
     zofka.turnRight(180);
   }
 
 
-  public void nakresli_nozicky(int delka_strany, int delka_nozicek) {
+  public void nakresliNozicky(int delkaStrany, int delkaNozicek) {
     zofka.turnLeft(45);
-    zofka.move(delka_nozicek);
+    zofka.move(delkaNozicek);
     zofka.turnLeft(180);
-    zofka.move(delka_nozicek);
+    zofka.move(delkaNozicek);
     zofka.turnLeft(90);
-    zofka.move(delka_nozicek);
+    zofka.move(delkaNozicek);
     zofka.turnLeft(180);
-    zofka.move(delka_nozicek);
+    zofka.move(delkaNozicek);
     zofka.turnLeft(135);
-    zofka.move(delka_strany);
+    zofka.move(delkaStrany);
     zofka.turnLeft(45);
-    zofka.move(delka_nozicek);
+    zofka.move(delkaNozicek);
     zofka.turnLeft(180);
-    zofka.move(delka_nozicek);
+    zofka.move(delkaNozicek);
     zofka.turnRight(90);
-    zofka.move(delka_nozicek);
+    zofka.move(delkaNozicek);
     zofka.turnLeft(180);
-    zofka.move(delka_nozicek);
+    zofka.move(delkaNozicek);
   }
 
-  public void nakresli_prasatko (int delka_strany) {
+  public void nakresliPrasatko (int delkaStrany) {
     zofka.turnLeft(90);
-    nakresli_domecek(100);
+    nakresliDomecek(100);
     zofka.turnLeft(90);
-    zofka.move(delka_strany);
-    nakresli_nozicky(100, 25);
+    zofka.move(delkaStrany);
+    nakresliNozicky(100, 25);
     zofka.turnRight(45);
 
   }
 
-  public void posun_na_zacatek() {
+  public void posunNaZacatek() {
     zofka.penUp();
     zofka.move(220);
     zofka.turnLeft(90);
@@ -115,21 +114,21 @@ public class HlavniProgram {
     zofka.penDown();
   }
 
-  public void posun(int delka_posunu, char smer) {
+  public void posun(int delkaPosunu, char smer) {
     zofka.penUp();
     if (smer == 'L') {
       zofka.turnLeft(90);
-      zofka.move(delka_posunu);
+      zofka.move(delkaPosunu);
       zofka.turnRight(90);
     } else if (smer == 'R') {
       zofka.turnRight(90);
-      zofka.move(delka_posunu);
+      zofka.move(delkaPosunu);
       zofka.turnLeft(90);
     } else if (smer == 'N') {
-      zofka.move(delka_posunu);
+      zofka.move(delkaPosunu);
     } else if (smer == 'S') {
       zofka.turnRight(180);
-      zofka.move(delka_posunu);
+      zofka.move(delkaPosunu);
       zofka.turnLeft(180);
     }
     zofka.penDown();
@@ -137,22 +136,21 @@ public class HlavniProgram {
 
 
 
-  public void nakresli_n_uhelnik(int pocet_uhlu, int delka_strany) {
-    for (int i = 0; i < pocet_uhlu; i++) {
-      zofka.move(delka_strany);
-      zofka.turnLeft(360/pocet_uhlu);
+  public void nakresliNUhelnik(int pocetUhlu, int delkaStrany) {
+    for (int i = 0; i < pocetUhlu; i++) {
+      zofka.move(delkaStrany);
+      zofka.turnLeft(360/pocetUhlu);
     }
-
   }
 
-  public void nakresli_slunicko(int delka_strany, int delka_luce) {
+  public void nakresliSlunicko(int delkaStrany, int delkaLuce) {
     for (int i = 0; i < 15; i++) {  //počet opakování (i) x uhel = 180
-      zofka.move(delka_strany);
+      zofka.move(delkaStrany);
       zofka.turnRight(360/30);
       zofka.turnLeft(90);
-      zofka.move(delka_luce);
+      zofka.move(delkaLuce);
       zofka.turnLeft(180);
-      zofka.move(delka_luce);
+      zofka.move(delkaLuce);
       zofka.turnLeft(90);
       zofka.turnRight(360/30);
   }
